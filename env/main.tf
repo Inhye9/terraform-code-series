@@ -16,13 +16,10 @@ module "ecr" {
   project_name = var.project_name
 }
 
-#module "eks" {
-#  source = "../modules/eks"
-#
-#  cluster_version    = "1.24"
-#  vpc_id             = module.vpc.vpc_id
-#  public_subnet_ids  = module.vpc.vpc_public_subnet_ids
-#  private_subnet_ids = module.vpc.vpc_private_subnet_ids
-#}
+module "ec2" {
+  source = "../modules/ec2"
+}
 
-
+module "alb" {
+  source = "../modules/alb"
+}

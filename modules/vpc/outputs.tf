@@ -18,3 +18,8 @@ output "vpc_public_subnet_ids" {
   ]
   description = "vpc public subnets ids"
 }
+
+output "vpc_cidr" {
+  value       = aws_vpc.vpc.cidr_block
+  description = "vpc cidr block"
+}
