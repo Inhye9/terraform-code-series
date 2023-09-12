@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  jenkins:
+    image: 224113960740.dkr.ecr.ap-northeast-2.amazonaws.com/tf-ecr-repo:jenkins
+    restart: always
+    container_name: jenkins
+    user: root
+    privileged: true
+    environment:
+      - TZ=Asia/Seoul
+    ports:
+      - 80:8080      # jenkins 접속 port
+      - 50000:50000    # jenkins agent를 통해 통신할 때 사용 포트
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+
